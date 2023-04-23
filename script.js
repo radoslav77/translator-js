@@ -23,5 +23,20 @@ const RightInput = document.getElementById('textright')
 const TransBtn = document.getElementById('trtanslate')
 
 TransBtn.addEventListener('click', ()=>{
-    console.log(LeftInput.value)
+    InputText(LeftInput.value)
 })
+
+function InputText (text){
+    
+    let textBx = []
+    textBx.push(text)
+    
+    for(let i = 0; i < textBx.length; i++){
+        console.log(textBx[i])
+    }
+
+    textBx.forEach(item =>{
+        console.log(item)
+    })
+    console.log(textBx)
+}
