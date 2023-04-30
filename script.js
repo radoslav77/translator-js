@@ -44,15 +44,18 @@ function InputText (text){
        
         
         WordsStr.forEach(entry => {
-             //console.log(entry)
+            //console.log(entry)
             let CharStr = entry.split('')
             CharStr.forEach(e => {
+                console.log(e)
                 for (let key in dictNewLang){
                    // console.log(key, '=',dictNewLang[key])
-                    if (e === key){
-                        console.log(e, '-', dictNewLang[key])
-                        OutPut.push(dictNewLang[key])
-                    }
+                    if (e === ' '){
+                        OutPut.push(' ')
+                    }else if(e === key){
+                            //console.log(e, '-', dictNewLang[key])
+                            OutPut.push(dictNewLang[key])
+                        }
                 }
 
 
