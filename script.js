@@ -17,26 +17,51 @@ let dictNewLang = {
 
 const LeftInput = document.getElementById('textleft')
 const RightInput = document.getElementById('textright')
-
+ let OutPutText = []
 
 
 const TransBtn = document.getElementById('trtanslate')
 
 TransBtn.addEventListener('click', ()=>{
     InputText(LeftInput.value)
+    RightInput.value = OutPutText
 })
 
 function InputText (text){
-    
+   
     let textBx = []
     textBx.push(text)
     
     for(let i = 0; i < textBx.length; i++){
-        console.log(textBx[i])
+        //console.log(textBx[i])
     }
 
+    let OutPut = []
+
     textBx.forEach(item =>{
-        console.log(item)
+        //console.log(item)
+        let WordsStr = item.split(/(\s+)/)
+       
+        
+        WordsStr.forEach(entry => {
+             //console.log(entry)
+            let CharStr = entry.split('')
+            CharStr.forEach(e => {
+                for (let key in dictNewLang){
+                   // console.log(key, '=',dictNewLang[key])
+                    if (e === key){
+                        console.log(e, '-', dictNewLang[key])
+                        OutPut.push(dictNewLang[key])
+                    }
+                }
+
+
+            })
+            
+            //console.log(OutPutText)
+             //console.log(CharStr)
+        })
     })
-    console.log(textBx)
+    OutPutText.push(OutPut.join(''))
+
 }
