@@ -24,7 +24,13 @@ const TransBtn = document.getElementById('trtanslate')
 
 TransBtn.addEventListener('click', ()=>{
     InputText(LeftInput.value)
-    RightInput.value = OutPutText
+    if (RightInput.value != ''){
+        RightInput.value = ''
+        location.reload()
+    }else{
+        RightInput.value = OutPutText
+    }
+    
 })
 
 function InputText (text){
@@ -68,3 +74,15 @@ function InputText (text){
     OutPutText.push(OutPut.join(''))
 
 }
+
+const SwitchBtn = document.getElementById('switch')
+
+SwitchBtn.addEventListener('click', ()=> {
+    let rightValue = RightInput.value
+    let leftValue = LeftInput.value
+
+
+    RightInput.value =  leftValue
+    LeftInput.value = rightValue
+    //console.log(LeftInput.value ,'-', RightInput.value)
+})
