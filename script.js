@@ -21,6 +21,19 @@ let OutPutText = []
 
 
 const TransBtn = document.getElementById('trtanslate')
+const TransBtnToNew = document.getElementById('trtanslateToNew')
+
+
+TransBtnToNew.addEventListener('click',()=>{
+    InputNewLangText(LeftInput.value)
+    if (RightInput.value != ''){
+        RightInput.value = ''
+        location.reload()
+    }else{
+        RightInput.value = OutPutText
+    }
+    
+})
 
 TransBtn.addEventListener('click', ()=>{
     InputText(LeftInput.value)
@@ -69,7 +82,7 @@ function InputText (text){
         })
     })
     OutPutText.push(OutPut.join(''))
-    InputNewLangText(LeftInput.value)
+    
 }
 
 const SwitchBtn = document.getElementById('switch')
@@ -84,7 +97,7 @@ SwitchBtn.addEventListener('click', ()=> {
     //console.log(LeftInput.value ,'-', RightInput.value)
 })
 
-// need to work on it as to the spliting procces
+
 function InputNewLangText(input){
     let textBx = []
     let VarCharThree = []
@@ -117,5 +130,27 @@ function InputNewLangText(input){
    }
 
    console.log(VarCharThree)
+
+   
+  let NewOutPut = []
+   VarCharThree.forEach(el => {
+    let NewVarible = []
+  
+    NewVarible = el.join('')
+    //console.log(NewVarible)
+    for (let key in dictNewLang){
+        //console.log(dictNewLang[key])
+        if (NewVarible == dictNewLang[key]){
+            console.log(key)
+            NewOutPut.push(key)
+            
+        }
+    }
+   
+
+   })
+   //console.log(NewOutPut.join(''))
+   OutPutText.push(NewOutPut.join(''))
+   
 }
 
