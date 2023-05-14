@@ -17,7 +17,7 @@ let dictNewLang = {
 
 const LeftInput = document.getElementById('textleft')
 const RightInput = document.getElementById('textright')
- let OutPutText = []
+let OutPutText = []
 
 
 const TransBtn = document.getElementById('trtanslate')
@@ -38,9 +38,6 @@ function InputText (text){
     let textBx = []
     textBx.push(text)
     
-    for(let i = 0; i < textBx.length; i++){
-        //console.log(textBx[i])
-    }
 
     let OutPut = []
 
@@ -53,7 +50,7 @@ function InputText (text){
             //console.log(entry)
             let CharStr = entry.split('')
             CharStr.forEach(e => {
-                console.log(e)
+                //console.log(e)
                 for (let key in dictNewLang){
                    // console.log(key, '=',dictNewLang[key])
                     if (e === ' '){
@@ -72,7 +69,7 @@ function InputText (text){
         })
     })
     OutPutText.push(OutPut.join(''))
-
+    InputNewLangText(LeftInput.value)
 }
 
 const SwitchBtn = document.getElementById('switch')
@@ -86,3 +83,39 @@ SwitchBtn.addEventListener('click', ()=> {
     LeftInput.value = rightValue
     //console.log(LeftInput.value ,'-', RightInput.value)
 })
+
+// need to work on it as to the spliting procces
+function InputNewLangText(input){
+    let textBx = []
+    let VarCharThree = []
+    let Arr = []
+
+    textBx.push(input)
+    //console.log(textBx)
+
+//console.log(VarCharThree)
+
+    textBx.forEach(item =>{
+        let wordSTring = item.split(/(\s+)/)
+        
+        wordSTring.forEach((el, index)=>{
+            let ThreeChar = el.split('')
+            //console.log(ThreeChar, '-', index)
+                
+            ThreeChar.forEach((lettetr, idx)=>{
+                let NewArr = Array.from(lettetr)
+                Arr.push(lettetr)
+                
+            })
+        })
+        
+    })
+    for (let i = 0; i < Arr.length; i += 3){
+    
+    let resultArr = Arr.slice(i, i + 3)
+        VarCharThree.push(resultArr)
+   }
+
+   console.log(VarCharThree)
+}
+
