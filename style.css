@@ -13,14 +13,28 @@ body {
   height: 100vh; /* vijual part of the brwser */
   overflow: hidden; /* noscroll bars to show */
   margin: 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url(https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/93aa50b368e74e7f8ec3749b69d26920.jpg);
 }
 
 button{
   height: 50px;
   width: 15%;
-  margin-top: 15%;
+  margin-top: 10%;
   border-radius: 10px;
   
+}
+
+button:active{
+  height: 45px;
+  width: 14%;
+  margin-top: 10%;
+  border-radius: 10px;
+}
+
+#trtanslateToNew{
+  margin-top: 5px;
 }
 
 .main{
@@ -46,4 +60,7 @@ button{
   margin: 10%;
   
 }
-
+textarea{
+  height: 100%;
+  width: 100%;
+}

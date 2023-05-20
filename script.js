@@ -81,10 +81,14 @@ function InputText (text){
              //console.log(CharStr)
         })
     })
-    OutPutText.push(OutPut.join(''))
-    
+    let newOut = []
+    newOut = OutPut.join('').replace(/\s+/g, ' ').trim()
+
+    OutPutText.push(newOut)
+    //console.log(newOut)
 }
 
+console.log(OutPutText)
 const SwitchBtn = document.getElementById('switch')
 
 SwitchBtn.addEventListener('click', ()=> {
@@ -117,7 +121,8 @@ function InputNewLangText(input){
                 
             ThreeChar.forEach((lettetr, idx)=>{
                 let NewArr = Array.from(lettetr)
-                Arr.push(lettetr)
+                //console.log(NewArr, '-', lettetr)
+                Arr.push(NewArr)
                 
             })
         })
@@ -125,8 +130,13 @@ function InputNewLangText(input){
     })
     for (let i = 0; i < Arr.length; i += 3){
     
-    let resultArr = Arr.slice(i, i + 3)
-        VarCharThree.push(resultArr)
+        if(Arr[i] === ' '){
+            VarCharThree.push(' ')
+        }else{
+
+        }let resultArr = Arr.slice(i, i + 3)
+            VarCharThree.push(resultArr)
+
    }
 
    console.log(VarCharThree)
@@ -135,8 +145,10 @@ function InputNewLangText(input){
   let NewOutPut = []
    VarCharThree.forEach(el => {
     let NewVarible = []
-  
+
     NewVarible = el.join('')
+
+    
     //console.log(NewVarible)
     for (let key in dictNewLang){
         //console.log(dictNewLang[key])
@@ -149,8 +161,9 @@ function InputNewLangText(input){
    
 
    })
-   //console.log(NewOutPut.join(''))
+   console.log(NewOutPut.join(''))
    OutPutText.push(NewOutPut.join(''))
+   
    
 }
 
